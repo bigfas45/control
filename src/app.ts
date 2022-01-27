@@ -7,8 +7,8 @@ import { controlListRouter } from './routes/control/list';
 import { controlShowRouter } from './routes/control/show';
 import { controlUpdateRouter } from './routes/control/update';
 import { controlDeleteRouter } from './routes/control/remove';
-import { darkRouter } from './routes/darkT/new';
-import { darkListRouter } from './routes/darkT/list';
+import { darkRouter } from './routes/styling/new';
+import { darkListRouter } from './routes/styling/list';
 
 import cookieSession from 'cookie-session';
 const app = express();

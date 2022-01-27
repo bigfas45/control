@@ -1,13 +1,13 @@
 import express, { Request, Response } from 'express';
 import { NotFoundError } from '@vboxdev/common';
-import { Dark } from '../../models/dark';
+import { Styling } from '../../models/styling';
 const objectToCss = require('convert-to-css');
 
 const router = express.Router();
 
 router.get('/api/dark', async(req: Request, res: Response) => {
 
-  const dark = await Dark.find({});
+  const dark = await Styling.find({});
 
    if (!dark) {
      throw new NotFoundError();
