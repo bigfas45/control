@@ -16,6 +16,7 @@
     "@vboxdev/common": "^1.0.27",
     "convert-to-css": "^1.0.4",
     "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "express-async-errors": "^3.1.1",
     "mongoose": "^6.1.7",

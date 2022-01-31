@@ -1,0 +1,7 @@
+html[data-theme='dark']
+{
+    --backgrund-colour:#222224;
+    --header-primary-text:#F5F5F5;
+    --header-secondary-text:#F5F5F5;
+    --theam-changer-background:#efefef
+}

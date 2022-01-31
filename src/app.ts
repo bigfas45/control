@@ -9,9 +9,13 @@ import { controlUpdateRouter } from './routes/control/update';
 import { controlDeleteRouter } from './routes/control/remove';
 import { darkRouter } from './routes/styling/new';
 import { darkListRouter } from './routes/styling/list';
+var cors = require('cors');
+
 
 import cookieSession from 'cookie-session';
 const app = express();
+app.use(cors());
+app.options('*', cors());
 app.set('trust proxy', true);
 app.use(json());
 app.use(express.urlencoded({ extended: true }));

@@ -2,30 +2,28 @@ import express, { Request, Response } from 'express';
 import { NotFoundError } from '@vboxdev/common';
 import { Styling } from '../../models/styling';
 const objectToCss = require('convert-to-css');
+const fsPromises = require('fs/promises');
 
 const router = express.Router();
 
+
+async function writeCss(input: any) {
+  const result = objectToCss.createCssRule(input)
+  const promise = fsPromises.writeFile(`./styles.css`, result);
+  return await promise;
+};
+
+
+
 router.get('/api/dark', async(req: Request, res: Response) => {
 
-  const dark = await Styling.find({});
+  const dark = await Styling.findOne({id: "61f29fd8ab638077881b0814"});
 
    if (!dark) {
      throw new NotFoundError();
    }
 
- 
-   const elements = Object.keys(dark)
-
-   console.log(elements);
-
-   for (let element of elements) {
-    //@ts-ignore
-    const props = Object.keys(dark[element]);
-    for (let prop of props) {
-      //@ts-ignore
-      console.log(prop, `: ${dark[element][prop]}`)
-    }
-  }
+   writeCss(dark.style);
   
 
  
