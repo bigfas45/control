@@ -14,16 +14,20 @@ router.post(
     body('appMenuName').not().isEmpty().withMessage('appMenuName is required'),
     body('appName').not().isEmpty().withMessage('appName is required'),
     body('appURL').not().isEmpty().withMessage('appURL is required'),
+    body('appRoute').not().isEmpty().withMessage('appRoute is required'),
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { appMenuName, appName, appURL } = req.body;
+    const { appMenuName, appName, appURL,appRoute } = req.body;
 
     const appMenuNameExist = await Control.findOne({appMenuName});
 
     const appNameExist = await Control.findOne({appName});
 
     const appURLExist = await Control.findOne({appURL});
+
+     const appRouteExist = await Control.findOne({appRoute});
+    
 
     if (appMenuNameExist) {
       throw new BadRequestError("App Menu Name you entered already exist")
@@ -37,11 +41,16 @@ router.post(
       throw new BadRequestError("App URL you entered already exist")
     }
 
+    if (appRouteExist) {
+      throw new BadRequestError("App Route Exist you entered already exist")
+    }
+
 
     const control = Control.build({
       appMenuName,
       appName,
-      appURL
+      appURL,
+      appRoute
     });
 
     await control.save();
