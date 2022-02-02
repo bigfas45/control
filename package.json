@@ -19,6 +19,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "express-async-errors": "^3.1.1",
+    "file-url": "^4.0.0",
     "mongoose": "^6.1.7",
     "style-object-to-css-string": "^1.0.1",
     "ts-node-dev": "^1.1.8",
