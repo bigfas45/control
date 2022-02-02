@@ -14,7 +14,7 @@ router.get('/api/file', async(req: Request, res: Response) => {
 
     console.log(directoryPath)
 
-    res.send(directoryPath + "styles.css");
+    res.send(directoryPath + "/styles.css");
 
     
 });
