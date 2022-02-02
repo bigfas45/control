@@ -2,13 +2,13 @@ import express from 'express';
 import 'express-async-errors';
 import { json } from 'body-parser';
 import { errorHandler, NotFoundError, currentUser } from '@vboxdev/common';
-import { controlRouter } from './routes/control/new';
-import { controlListRouter } from './routes/control/list';
-import { controlShowRouter } from './routes/control/show';
-import { controlUpdateRouter } from './routes/control/update';
-import { controlDeleteRouter } from './routes/control/remove';
-import { darkRouter } from './routes/styling/new';
-import { darkListRouter } from './routes/styling/list';
+import { controlRouter } from './src/routes/control/new';
+import { controlListRouter } from './src/routes/control/list';
+import { controlShowRouter } from './src/routes/control/show';
+import { controlUpdateRouter } from './src/routes/control/update';
+import { controlDeleteRouter } from './src/routes/control/remove';
+import { darkRouter } from './src/routes/styling/new';
+import { darkListRouter } from './src/routes/styling/list';
 var cors = require('cors');
 
 
