@@ -15,17 +15,17 @@ async function writeCss(input: any) {
 
 
 
-router.get('/api/dark/:id', async(req: Request, res: Response) => {
+router.get('/api/style', async(req: Request, res: Response) => {
 
-  const id = req.params.id
+  
 
-  const dark = await Styling.findById(id);
+  const dark = await Styling.find({});
 
    if (!dark) {
      throw new NotFoundError();
    }
 
-   writeCss(dark.style);
+
   
 
  
@@ -40,4 +40,4 @@ router.get('/api/dark/:id', async(req: Request, res: Response) => {
 
 });
 
-export { router as darkListRouter };
+export { router as IndexStyleRouter };

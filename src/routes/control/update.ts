@@ -8,7 +8,7 @@ router.put(
   '/api/control/:conId',
   async (req: Request, res: Response) => {
 
-     const { appName, appURL, appMenuName} =
+     const { appName, appURL, appMenuName, appRoute} =
        req.body;
 
 
@@ -31,6 +31,10 @@ router.put(
      if (appMenuName) {
         control.set({ appMenuName });
      }
+
+     if (appRoute) {
+      control.set({ appRoute });
+   }
 
     await control.save();
 

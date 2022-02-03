@@ -10,6 +10,9 @@ import { controlDeleteRouter } from './src/routes/control/remove';
 import { darkRouter } from './src/routes/styling/new';
 import { darkListRouter } from './src/routes/styling/list';
 import { controlFileRouter } from './src/routes/control/file';
+import { IndexStyleRouter } from './src/routes/styling/index';
+
+
 var cors = require('cors');
 
 
@@ -37,6 +40,7 @@ app.use(
  app.use(darkRouter);
  app.use(darkListRouter);
  app.use(controlFileRouter);
+ app.use(IndexStyleRouter);
 
 app.all('*', async (req, res, next) => {
   throw new NotFoundError();
