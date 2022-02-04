@@ -36,7 +36,7 @@ const ControlSchema = new mongoose.Schema(
       },
       appRoute: {
         type: String,
-        required: true,
+       
       },
 
 

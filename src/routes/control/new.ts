@@ -20,7 +20,7 @@ router.post(
     body('appMenuName').not().isEmpty().withMessage('appMenuName is required'),
     body('appName').not().isEmpty().withMessage('appName is required'),
     body('appURL').not().isEmpty().withMessage('appURL is required'),
-    body('appRoute').not().isEmpty().withMessage('appRoute is required'),
+  
   ],
   validateRequest,
   async (req: Request, res: Response) => {
