@@ -25,22 +25,21 @@ router.get('/api/control', async(req: Request, res: Response) => {
     "imports": {}
       }
 
-   for(const {appName, appURL} of control) {
+    data["imports"]["react"] =  "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js"
+    data["imports"]["react-dom"] =  "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js"
 
+   for(const {appName, appURL} of control) {
     data["imports"][appName] = appURL
 }
 
 
 data["imports"]["@Stanbic/root-config"] =  "http://localhost:9000/Stanbic-root-config.js"
-
 data["imports"]["@stanbic/sidebar"] =  "http://localhost:9001/main.js"
-
 data["imports"]["@stanbic/header"] =  "http://localhost:9002/main.js"
 
 
 
 console.log(data)
-
 
   // Configure client for use with Spaces
   const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
@@ -49,9 +48,6 @@ console.log(data)
       accessKeyId: '55FTPVWKZXK3VVLYORRX',
       secretAccessKey: 'lFelSHpg6Ci6S1svfoPssG1y944WEZJ5sIeXzMo212I'
   });
-
-
-
 
 var params = {
   Body: JSON.stringify(data),
@@ -67,13 +63,6 @@ s3.putObject(params, function(err: any, data: any) {
   else     console.log(data);
 });
 
-
-
-
-
-
-   
-   
 
   res.send(control);
 });

@@ -28,6 +28,8 @@ async function writeCss(input: any) {
    Body: result,
    Bucket: "tets",
    Key: "styles.css",
+  ACL: "public-read",
+  ContentType: "text/css"
  };
  
  
@@ -39,14 +41,8 @@ async function writeCss(input: any) {
  
 
 
-
-
-
-
   return await promise;
 };
-
-
 
 
 

@@ -73,13 +73,18 @@ router.post(
     "imports": {}
       }
 
+      data["imports"]["react"] =  "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js"
+    data["imports"]["react-dom"] =  "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js"
+
+
    for(const {appName, appURL} of controlS) {
 
     data["imports"][appName] = appURL
 }
 
 data["imports"]["@Stanbic/root-config"] =  "http://localhost:9000/Stanbic-root-config.js"
-
+data["imports"]["@stanbic/sidebar"] =  "http://localhost:9001/main.js"
+data["imports"]["@stanbic/header"] =  "http://localhost:9002/main.js"
 
 console
 
