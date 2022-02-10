@@ -26,8 +26,6 @@ const StylingSchema = new mongoose.Schema(
       type: Object,
       required: true,
     }
-  
-
   },
   {
     toJSON: {
