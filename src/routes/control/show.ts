@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { NotFoundError } from '@vboxdev/common';
 import { Control } from '../../models/control';
+import { Features } from '../../models/subFeatures';
 
 const router = express.Router();
 
@@ -13,7 +14,13 @@ router.get('/api/control/:conId', async (req: Request, res: Response) => {
     throw new NotFoundError();
   }
 
-  res.send(control);
+
+  const features = await Features.find({control: req.params.conId});
+
+
+
+
+  res.send({control, features});
 });
 
 export { router as controlShowRouter };

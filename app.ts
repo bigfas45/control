@@ -10,6 +10,12 @@ import { controlDeleteRouter } from './src/routes/control/remove';
 import { darkRouter } from './src/routes/styling/new';
 import { darkListRouter } from './src/routes/styling/list';
 import { controlFileRouter } from './src/routes/control/file';
+import { controlAddSubFeatureRouter } from './src/routes/control/addSubFeature';
+import { controlSubShowRouter } from './src/routes/control/showSubFeature';
+import { controlSubFeatureUpdateRouter } from './src/routes/control/updateSubFeaturesControl';
+import { controlFeaturesListRouter } from './src/routes/control/listAllFeaturesControl';
+
+
 import { IndexStyleRouter } from './src/routes/styling/index';
 
 
@@ -41,6 +47,10 @@ app.use(
  app.use(darkListRouter);
  app.use(controlFileRouter);
  app.use(IndexStyleRouter);
+ app.use(controlAddSubFeatureRouter);
+ app.use(controlSubShowRouter);
+ app.use(controlSubFeatureUpdateRouter);
+ app.use(controlFeaturesListRouter);
 
 app.all('*', async (req, res, next) => {
   throw new NotFoundError();

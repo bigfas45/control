@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev index.ts"
-  },
+    "start": "ts-node-dev index.ts",
+    "postinstall": "$(yarn bin)/pm2 install typescript"
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -5,6 +5,8 @@ interface ControlAttrs {
     appURL: string;
     appMenuName: string;
     appRoute: string;
+    appIcons: string;
+
 
 }
 
@@ -13,6 +15,7 @@ export interface ControlDoc extends mongoose.Document {
     appURL: string;
     appMenuName: string;
     appRoute: string;
+    appIcons: string;
 
 }
 
@@ -38,7 +41,9 @@ const ControlSchema = new mongoose.Schema(
         type: String,
        
       },
-
+      appIcons: {
+        type: String,
+      },
 
   },
   {

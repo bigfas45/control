@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { NotFoundError } from '@vboxdev/common';
 import { Control } from '../../models/control';
+import { Features } from '../../models/subFeatures';
 const AWS = require('aws-sdk')
 
 interface dataInterface {
@@ -15,7 +16,9 @@ const router = express.Router();
 router.get('/api/control', async(req: Request, res: Response) => {
 
 
-  const control = await Control.find({});
+  const control = await Control.find({})
+
+
 
    if (!control) {
      throw new NotFoundError();
@@ -64,7 +67,17 @@ s3.putObject(params, function(err: any, data: any) {
 });
 
 
-  res.send(control);
+
+const result = control.map(async (con) => {
+  const features = await  Features.find({
+    control: con.id
+  });
+  return {con, features}
+})
+
+const finalResult = await Promise.all(result);
+
+  res.send(finalResult);
 });
 
 export { router as controlListRouter };

@@ -24,7 +24,7 @@ router.post(
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { appMenuName, appName, appURL,appRoute } = req.body;
+    const { appMenuName, appName, appURL,appRoute,  appIcons } = req.body;
 
     const appMenuNameExist = await Control.findOne({appMenuName});
 
@@ -56,7 +56,9 @@ router.post(
       appMenuName,
       appName,
       appURL,
-      appRoute
+      appRoute,
+      appIcons,
+  
     });
 
     await control.save();
