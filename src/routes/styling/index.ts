@@ -7,11 +7,11 @@ const fsPromises = require('fs/promises');
 const router = express.Router();
 
 
-async function writeCss(input: any) {
-  const result = objectToCss.createCssRule(input)
-  const promise = fsPromises.writeFile(`./styles.css`, result);
-  return await promise;
-};
+// async function writeCss(input: any) {
+//   const result = objectToCss.createCssRule(input)
+//   const promise = fsPromises.writeFile(`./styles.css`, result);
+//   return await promise;
+// };
 
 
 

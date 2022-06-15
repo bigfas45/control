@@ -11,6 +11,9 @@ import { darkRouter } from './src/routes/styling/new';
 import { darkListRouter } from './src/routes/styling/list';
 import { controlFileRouter } from './src/routes/control/file';
 import { IndexStyleRouter } from './src/routes/styling/index';
+import { featureRouter } from './src/routes/features/new';
+import { featuresListRouter } from './src/routes/features/index';
+import { featuresShowRouter } from './src/routes/features/show';
 
 
 var cors = require('cors');
@@ -41,6 +44,9 @@ app.use(
  app.use(darkListRouter);
  app.use(controlFileRouter);
  app.use(IndexStyleRouter);
+ app.use(featureRouter);
+ app.use(featuresListRouter);
+ app.use(featuresShowRouter);
 
 app.all('*', async (req, res, next) => {
   throw new NotFoundError();

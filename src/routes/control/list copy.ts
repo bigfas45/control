@@ -43,21 +43,19 @@ console.log(data)
 
   // Configure client for use with Spaces
   const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
-    const s3 = new AWS.S3({
+  const s3 = new AWS.S3({
       endpoint: spacesEndpoint,
-      accessKeyId: 'EQRYOWQZ2GTTNWHFOSJW',
-      secretAccessKey: '0tUtFe8M0Xs4V7PX7XZGW9UpvoSwZ3JqzvlRwKHV64w',
-    });
+      accessKeyId: '55FTPVWKZXK3VVLYORRX',
+      secretAccessKey: 'lFelSHpg6Ci6S1svfoPssG1y944WEZJ5sIeXzMo212I'
+  });
 
-
-    var params = {
-      Body: JSON.stringify(data),
-      Bucket: "control",
-      Key: "importmap.json",
-      ACL: "public-read",
-      ContentType: "application/json"
-    };
-    
+var params = {
+  Body: JSON.stringify(data),
+  Bucket: "tets",
+  Key: "importmap.json",
+  ACL: "public-read",
+  ContentType: "application/json"
+};
 
 
 s3.putObject(params, function(err: any, data: any) {
