@@ -82,7 +82,7 @@ router.post(
     data["imports"][appName] = appURL
 }
 
-data["imports"]["@Stanbic/root-config"] =  "http://localhost:9000/Stanbic-root-config.js"
+data["imports"]["@Stanbic/root-config"] =  "https://sbinternetbanking.web.app/Stanbic-root-config.js"
 data["imports"]["@stanbic/sidebar"] =  "http://localhost:9001/main.js"
 data["imports"]["@stanbic/header"] =  "http://localhost:9002/main.js"
 
@@ -91,20 +91,29 @@ console
 
 
 
-  // Configure client for use with Spaces
+  // // Configure client for use with Spaces
+  // const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
+  // const s3 = new AWS.S3({
+  //     endpoint: spacesEndpoint,
+  //     accessKeyId: '55FTPVWKZXK3VVLYORRX',
+  //     secretAccessKey: 'lFelSHpg6Ci6S1svfoPssG1y944WEZJ5sIeXzMo212I'
+  // });
+
+
+
   const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
-  const s3 = new AWS.S3({
+    const s3 = new AWS.S3({
       endpoint: spacesEndpoint,
-      accessKeyId: '55FTPVWKZXK3VVLYORRX',
-      secretAccessKey: 'lFelSHpg6Ci6S1svfoPssG1y944WEZJ5sIeXzMo212I'
-  });
+      accessKeyId: 'EQRYOWQZ2GTTNWHFOSJW',
+      secretAccessKey: '0tUtFe8M0Xs4V7PX7XZGW9UpvoSwZ3JqzvlRwKHV64w',
+    });
 
 
 
 
 var params = {
   Body: JSON.stringify(data),
-  Bucket: "tets",
+  Bucket: "control",
   Key: "importmap.json",
   ACL: "public-read",
   ContentType: "application/json"
