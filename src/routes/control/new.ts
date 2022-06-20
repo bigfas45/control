@@ -24,7 +24,7 @@ router.post(
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { appMenuName, appName, appURL,appRoute } = req.body;
+    const { appMenuName, appName, appURL,appRoute, appIcon } = req.body;
 
     const appMenuNameExist = await Control.findOne({appMenuName});
 
@@ -56,7 +56,8 @@ router.post(
       appMenuName,
       appName,
       appURL,
-      appRoute
+      appRoute,
+      appIcon
     });
 
     await control.save();
@@ -83,8 +84,8 @@ router.post(
 }
 
 data["imports"]["@Stanbic/root-config"] =  "https://sbinternetbanking.web.app/Stanbic-root-config.js"
-data["imports"]["@stanbic/sidebar"] =  "http://localhost:9001/main.js"
-data["imports"]["@stanbic/header"] =  "http://localhost:9002/main.js"
+data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/"
+data["imports"]["@stanbic/header"] =  "https://sbinternetbankingheader.web.app/"
 
 console
 
