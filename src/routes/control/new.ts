@@ -87,7 +87,7 @@ data["imports"]["@Stanbic/root-config"] =  "https://sbinternetbanking.web.app/St
 data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
 data["imports"]["@stanbic/header"] =  "https://sbinternetbankingheader.web.app/main.js"
 
-console
+
 
 
 
