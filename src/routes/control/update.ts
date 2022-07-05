@@ -8,9 +8,13 @@ router.put(
   '/api/control/:conId',
   async (req: Request, res: Response) => {
 
-     const { appName, appURL, appMenuName, appRoute} =
+
+
+     const { appName, appURL, appMenuName, appRoute, appIcon} =
        req.body;
 
+
+       console.log("appIcon", appIcon)
 
 
     const control = await Control.findById(req.params.conId);
@@ -36,7 +40,13 @@ router.put(
       control.set({ appRoute });
    }
 
+   if (appIcon) {
+      control.set({ appIcon });
+   }
+
     await control.save();
+
+    console.log(control)
 
     res.status(201).send(control);
   }
