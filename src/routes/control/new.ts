@@ -105,8 +105,8 @@ data["imports"]["@stanbic/header"] =  "https://sbinternetbankingheader.web.app/m
   const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
     const s3 = new AWS.S3({
       endpoint: spacesEndpoint,
-      accessKeyId: 'EQRYOWQZ2GTTNWHFOSJW',
-      secretAccessKey: '0tUtFe8M0Xs4V7PX7XZGW9UpvoSwZ3JqzvlRwKHV64w',
+      accessKeyId: 'CWI7K3TKYFZIRPEBMWAF',
+      secretAccessKey: 'HjgTHoEfq6aVTh0IAD6ZmNo47ysnYK+K2W61d11wK+k',
     });
 
 
@@ -114,7 +114,7 @@ data["imports"]["@stanbic/header"] =  "https://sbinternetbankingheader.web.app/m
 
 var params = {
   Body: JSON.stringify(data),
-  Bucket: "control",
+  Bucket: "contro",
   Key: "importmap.json",
   ACL: "public-read",
   ContentType: "application/json"
