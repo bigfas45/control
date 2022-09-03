@@ -36,7 +36,7 @@ router.get('/api/control', async(req: Request, res: Response) => {
 data["imports"]["@Stanbic/root-config"] =  "https://sbinternetbanking.web.app/Stanbic-root-config.js"
 // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
 data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
-data["imports"]["@stanbic/header"] =  "https://sbinternetbankingheader.web.app/main.js"
+data["imports"]["@stanbic/header"] =  "http://localhost:9002/main.js"
 data["imports"]["@stanbic/mobilemenu"] =  "http://localhost:9001/main.js"
 
 
