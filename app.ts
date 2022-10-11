@@ -14,6 +14,7 @@ import { IndexStyleRouter } from './src/routes/styling/index';
 import { featureRouter } from './src/routes/features/new';
 import { featuresListRouter } from './src/routes/features/index';
 import { featuresShowRouter } from './src/routes/features/show';
+import {controlFeautureUpdateRouter } from './src/routes/features/update';
 
 
 var cors = require('cors');
@@ -47,6 +48,7 @@ app.use(
  app.use(featureRouter);
  app.use(featuresListRouter);
  app.use(featuresShowRouter);
+ app.use(controlFeautureUpdateRouter)
 
 app.all('*', async (req, res, next) => {
   throw new NotFoundError();
