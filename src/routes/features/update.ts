@@ -5,7 +5,7 @@ import { Control } from '../../models/control';
 const router = express.Router();
 
 router.put(
-  '/api/control/:conId',
+  '/api/control/feature/:conId',
   async (req: Request, res: Response) => {
 
      const { appName, appURL, appMenuName, appRoute} =
