@@ -1,18 +1,15 @@
 import mongoose from 'mongoose';
 
 interface FeaturesAttrs {
-    subFeatureRoute: string;
-    subFeatureName: string;
-    control: string;
-
-
+  subFeatureRoute: string;
+  subFeatureName: string;
+  control: string;
 }
 
 export interface FeaturesDoc extends mongoose.Document {
-    subFeatureRoute: string;
-    subFeatureName: string;
-    control: string;
-
+  subFeatureRoute: string;
+  subFeatureName: string;
+  control: string;
 }
 
 interface FeaturesModel extends mongoose.Model<FeaturesDoc> {
@@ -30,12 +27,10 @@ const FeaturesSchema = new mongoose.Schema(
       required: true,
     },
     control: {
-        type: String,
-        required: true,
-      },
-  
-
-
+      type: mongoose.Types.ObjectId,
+      ref: 'Control',
+      required: true,
+    },
   },
   {
     toJSON: {
@@ -47,11 +42,13 @@ const FeaturesSchema = new mongoose.Schema(
   }
 );
 
-
 FeaturesSchema.statics.build = (attrs: FeaturesAttrs) => {
   return new Features(attrs);
 };
 
-const Features = mongoose.model<FeaturesDoc, FeaturesModel>('Features', FeaturesSchema);
+const Features = mongoose.model<FeaturesDoc, FeaturesModel>(
+  'Features',
+  FeaturesSchema
+);
 
 export { Features };

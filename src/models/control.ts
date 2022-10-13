@@ -1,22 +1,19 @@
 import mongoose from 'mongoose';
 
 interface ControlAttrs {
-    appName: string;
-    appURL: string;
-    appMenuName: string;
-    appRoute: string;
-    appIcon: string;
-
+  appName: string;
+  appURL: string;
+  appMenuName: string;
+  appRoute: string;
+  appIcon: string;
 }
 
 export interface ControlDoc extends mongoose.Document {
-    appName: string;
-    appURL: string;
-    appMenuName: string;
-    appRoute: string;
-    appIcon: string;
-
-
+  appName: string;
+  appURL: string;
+  appMenuName: string;
+  appRoute: string;
+  appIcon: string;
 }
 
 interface ControlModel extends mongoose.Model<ControlDoc> {
@@ -28,25 +25,26 @@ const ControlSchema = new mongoose.Schema(
     appName: {
       type: String,
       required: true,
+      trim: true,
     },
     appURL: {
       type: String,
       required: true,
+      trim: true,
     },
     appMenuName: {
-        type: String,
-        required: true,
-      },
-      appRoute: {
-        type: String,
-       
-      },
-      appIcon: {
-        type: String,
-       
-      },
-
-
+      type: String,
+      required: true,
+      trim: true,
+    },
+    appRoute: {
+      type: String,
+      trim: true,
+    },
+    appIcon: {
+      type: String,
+      trim: true,
+    },
   },
   {
     toJSON: {
@@ -58,11 +56,13 @@ const ControlSchema = new mongoose.Schema(
   }
 );
 
-
 ControlSchema.statics.build = (attrs: ControlAttrs) => {
   return new Control(attrs);
 };
 
-const Control = mongoose.model<ControlDoc, ControlModel>('Control', ControlSchema);
+const Control = mongoose.model<ControlDoc, ControlModel>(
+  'Control',
+  ControlSchema
+);
 
 export { Control };

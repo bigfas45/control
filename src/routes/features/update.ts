@@ -5,7 +5,7 @@ import { Features } from '../../models/features';
 const router = express.Router();
 
 router.put('/api/feature/:conId/', async (req: Request, res: Response) => {
-  const { appName, appURL, appMenuName, appRoute } = req.body;
+   const { subFeatureRoute, subFeatureName} = req.body;
 
   const control = await Features.findById(req.params.conId);
 
@@ -13,21 +13,15 @@ router.put('/api/feature/:conId/', async (req: Request, res: Response) => {
     throw new NotFoundError();
   }
 
-  if (appName) {
-    control.set({ appName });
+  if (subFeatureRoute) {
+    control.set({ subFeatureRoute });
   }
 
-  if (appURL) {
-    control.set({ appURL });
+  if (subFeatureName) {
+    control.set({ subFeatureName });
   }
 
-  if (appMenuName) {
-    control.set({ appMenuName });
-  }
-
-  if (appRoute) {
-    control.set({ appRoute });
-  }
+ 
 
   await control.save();
 
