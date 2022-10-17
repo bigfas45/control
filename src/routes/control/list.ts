@@ -19,13 +19,13 @@ router.get('/api/control', async (req: Request, res: Response) => {
     throw new NotFoundError();
   }
 
-  // const results = control.map(async (result) => {
-  //   const features = await Features.find({ control: result._id });
+  const results = control.map(async (result) => {
+    const features = await Features.find({ control: result._id });
 
-  //   return { result, features };
-  // });
+    return { result, features };
+  });
 
-  // const controls = await Promise.all(results);
+  const controls = await Promise.all(results);
 
   const data: dataInterface = {
     imports: {},
@@ -72,7 +72,7 @@ router.get('/api/control', async (req: Request, res: Response) => {
     else console.log(data);
   });
 
-  res.send(control);
+  res.send(controls);
 });
 
 export { router as controlListRouter };
