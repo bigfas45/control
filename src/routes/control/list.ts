@@ -13,7 +13,7 @@ interface dataInterface {
 const router = express.Router();
 
 router.get('/api/control', async (req: Request, res: Response) => {
-  const control = await Control.find({});
+  const control = await Control.find({status: true});
 
   if (!control) {
     throw new NotFoundError();
@@ -45,8 +45,8 @@ router.get('/api/control', async (req: Request, res: Response) => {
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
   data['imports']['@stanbic/sidebar'] =
     'https://sbinternetbankingsidebar.web.app/main.js';
-  // data['imports']['@stanbic/header'] ='https://sbinternetbankingheader.web.app/main.js';
-  data["imports"]["@stanbic/header"] =  "http://localhost:9002/main.js"
+  data['imports']['@stanbic/header'] ='https://sbinternetbankingheader.web.app/main.js';
+  // data["imports"]["@stanbic/header"] =  "http://localhost:9002/main.js"
   data['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
   // console.log(data);
