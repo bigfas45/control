@@ -13,7 +13,7 @@ interface dataInterface {
 const router = express.Router();
 
 router.get('/api/control', async (req: Request, res: Response) => {
-  const control = await Control.find({status: true});
+  const control = await Control.find({status: true}).sort( { order : 1 } )
 
   if (!control) {
     throw new NotFoundError();
@@ -77,7 +77,7 @@ router.get('/api/control', async (req: Request, res: Response) => {
 
 
 router.get('/api/control/app', async (req: Request, res: Response) => {
-  const control = await Control.find({});
+  const control = await Control.find({}).sort( { order : 1 } )
 
   if (!control) {
     throw new NotFoundError();

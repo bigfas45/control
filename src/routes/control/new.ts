@@ -33,6 +33,15 @@ router.post(
     const appURLExist = await Control.findOne({appURL});
 
      const appRouteExist = await Control.findOne({appRoute});
+
+   const highestOrder =  await Control.findOne().sort({order:-1}).limit(1)
+
+   var  newOrder : number = 0
+   if(highestOrder){
+     newOrder = highestOrder.order! 
+   }
+
+
     
 
     if (appMenuNameExist) {
@@ -58,6 +67,7 @@ router.post(
       appURL,
       appRoute,
       appIcon,
+      order: newOrder + 1
       
     });
 

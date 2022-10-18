@@ -7,6 +7,7 @@ interface ControlAttrs {
   appRoute: string;
   appIcon: string;
   status?: boolean
+  order?: number
 }
 
 export interface ControlDoc extends mongoose.Document {
@@ -15,7 +16,9 @@ export interface ControlDoc extends mongoose.Document {
   appMenuName: string;
   appRoute: string;
   appIcon: string;
-  status?: boolean
+  status?: boolean;
+  order?: number
+
 
 }
 
@@ -51,6 +54,11 @@ const ControlSchema = new mongoose.Schema(
     status: {
       type: Boolean,
       default: false,
+      trim: true,
+    },
+    order: {
+      type: Number,
+      default: 0,
       trim: true,
     },
   },
