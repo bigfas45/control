@@ -13,7 +13,7 @@ interface dataInterface {
 const router = express.Router();
 
 router.get('/api/control', async (req: Request, res: Response) => {
-  const control = await Control.find({status: true}).sort( { order : 1 } )
+  const control = await Control.find({ status: true }).sort({ order: 1 });
 
   if (!control) {
     throw new NotFoundError();
@@ -45,7 +45,8 @@ router.get('/api/control', async (req: Request, res: Response) => {
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
   data['imports']['@stanbic/sidebar'] =
     'https://sbinternetbankingsidebar.web.app/main.js';
-  data['imports']['@stanbic/header'] ='https://sbinternetbankingheader.web.app/main.js';
+  data['imports']['@stanbic/header'] =
+    'https://sbinternetbankingheader.web.app/main.js';
   // data["imports"]["@stanbic/header"] =  "http://localhost:9002/main.js"
   data['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
@@ -75,9 +76,8 @@ router.get('/api/control', async (req: Request, res: Response) => {
   res.send(controls);
 });
 
-
 router.get('/api/control/app', async (req: Request, res: Response) => {
-  const control = await Control.find({}).sort( { order : 1 } )
+  const control = await Control.find({}).sort({ order: 1 });
 
   if (!control) {
     throw new NotFoundError();
@@ -109,7 +109,8 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
   data['imports']['@stanbic/sidebar'] =
     'https://sbinternetbankingsidebar.web.app/main.js';
-  data['imports']['@stanbic/header'] ='https://sbinternetbankingheader.web.app/main.js';
+  data['imports']['@stanbic/header'] =
+    'https://sbinternetbankingheader.web.app/main.js';
   // data["imports"]["@stanbic/header"] =  "http://localhost:9002/main.js"
   data['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
@@ -135,6 +136,49 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
     if (err) console.log(err, err.stack);
     else console.log(data);
   });
+
+  res.send(controls);
+});
+
+router.get('/api/control/search', async (req: Request, res: Response) => {
+  const { appMenuName } = req.query;
+
+  const fetchParams: any = {
+    filterOptions: {
+      appMenuName,
+
+  
+    },
+
+
+  };
+
+
+  if(!appMenuName){
+
+  }
+
+  const appMenuNameRegex = new RegExp(fetchParams.filterOptions.appMenuName, 'ig');
+
+    const appMenuNameGet = { $regex: appMenuNameRegex };
+
+    console.log(appMenuNameGet)
+
+  const control = await Control.aggregate([
+    {
+      $match: {
+        appMenuName: appMenuNameGet
+      },
+    },
+  ]);
+
+  const results = control.map(async (result) => {
+    const features = await Features.find({ control: result._id });
+
+    return { result, features };
+  });
+
+  const controls = await Promise.all(results);
 
   res.send(controls);
 });
