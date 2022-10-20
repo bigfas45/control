@@ -27,30 +27,61 @@ router.get('/api/control', async (req: Request, res: Response) => {
 
   const controls = await Promise.all(results);
 
-  const data: dataInterface = {
+  const dataEn: dataInterface = {
     imports: {},
   };
 
-  data['imports']['react'] =
+  const dataCH: dataInterface = {
+    imports: {},
+  };
+
+  dataEn['imports']['react'] =
     'https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js';
-  data['imports']['react-dom'] =
+  dataEn['imports']['react-dom'] =
+    'https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js';
+
+  dataCH['imports']['react'] =
+    'https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js';
+  dataCH['imports']['react-dom'] =
     'https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js';
 
   for (const { appName, appURL } of control) {
-    data['imports'][appName] = appURL;
+    if (appURL.includes('main.js')) {
+      let newUrl = appURL.replace('/main.js', '');
+
+      dataEn['imports'][appName] = newUrl + '/en-us/main.js';
+
+      dataCH['imports'][appName] = newUrl + '/zh-cn/main.js';
+    }
   }
 
-  data['imports']['@Stanbic/root-config'] =
+  // english
+  dataEn['imports']['@Stanbic/root-config'] =
     'https://sbinternetbanking.web.app/Stanbic-root-config.js';
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
-  data['imports']['@stanbic/sidebar'] =
-    'https://sbinternetbankingsidebar.web.app/main.js';
+  dataEn['imports']['@stanbic/sidebar'] =
+    'https://sbinternetbankingsidebar.web.app/en-us/main.js';
   // data['imports']['@stanbic/header'] =
   //   'https://sbinternetbankingheader.web.app/main.js';
-  data["imports"]["@stanbic/header"] =  "http://localhost:9002/main.js"
-  data['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
+  dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/en-us/main.js';
+  dataEn['imports']['@stanbic/mobilemenu'] =
+    'http://localhost:9001/en-us/main.js';
 
-  // console.log(data);
+  // chiness
+  dataCH['imports']['@Stanbic/root-config'] =
+    'https://sbinternetbanking.web.app/Stanbic-root-config.js';
+  // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
+  dataCH['imports']['@stanbic/sidebar'] =
+    'https://sbinternetbankingsidebar.web.app/zh-cn/main.js';
+  // data['imports']['@stanbic/header'] =
+  //   'https://sbinternetbankingheader.web.app/main.js';
+  dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/zh-cn/main.js';
+  dataCH['imports']['@stanbic/mobilemenu'] =
+    'http://localhost:9001/zh-cn/main.js';
+
+  console.log('dataEn', dataEn);
+
+  console.log('dataEn', dataCH);
 
   // Configure client for use with Spaces
   const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
@@ -60,19 +91,32 @@ router.get('/api/control', async (req: Request, res: Response) => {
     secretAccessKey: 'HjgTHoEfq6aVTh0IAD6ZmNo47ysnYK+K2W61d11wK+k',
   });
 
-  var params = {
-    Body: JSON.stringify(data),
+  var paramsEn = {
+    Body: JSON.stringify(dataEn),
+    Bucket: 'contro/en',
+    Key: 'importmap.json',
+    ACL: 'public-read',
+    ContentType: 'application/json',
+  };
+
+  var paramsCH = {
+    Body: JSON.stringify(dataCH),
     Bucket: 'contro',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
   };
 
-  s3.putObject(params, function (err: any, data: any) {
+  s3.putObject(paramsEn, function (err: any, data: any) {
     if (err) console.log(err, err.stack);
     else console.log(data);
   });
 
+
+  s3.putObject(paramsCH, function (err: any, data: any) {
+    if (err) console.log(err, err.stack);
+    else console.log(data);
+  });
   res.send(controls);
 });
 
@@ -91,29 +135,61 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
 
   const controls = await Promise.all(results);
 
-  const data: dataInterface = {
+  const dataEn: dataInterface = {
     imports: {},
   };
 
-  data['imports']['react'] =
+  const dataCH: dataInterface = {
+    imports: {},
+  };
+
+  dataEn['imports']['react'] =
     'https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js';
-  data['imports']['react-dom'] =
+  dataEn['imports']['react-dom'] =
+    'https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js';
+
+  dataCH['imports']['react'] =
+    'https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js';
+  dataCH['imports']['react-dom'] =
     'https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js';
 
   for (const { appName, appURL } of control) {
-    data['imports'][appName] = appURL;
+    if (appURL.includes('main.js')) {
+      let newUrl = appURL.replace('/main.js', '');
+
+      dataEn['imports'][appName] = newUrl + '/en-us/main.js';
+
+      dataCH['imports'][appName] = newUrl + '/zh-cn/main.js';
+    }
   }
 
-  data['imports']['@Stanbic/root-config'] =
+  // english
+  dataEn['imports']['@Stanbic/root-config'] =
     'https://sbinternetbanking.web.app/Stanbic-root-config.js';
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
-  data['imports']['@stanbic/sidebar'] =
-    'https://sbinternetbankingsidebar.web.app/main.js';
-  // data['imports']['@stanbic/header'] =  'https://sbinternetbankingheader.web.app/main.js';
-  data['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
-  data['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
+  dataEn['imports']['@stanbic/sidebar'] =
+    'https://sbinternetbankingsidebar.web.app/en-us/main.js';
+  // data['imports']['@stanbic/header'] =
+  //   'https://sbinternetbankingheader.web.app/main.js';
+  dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/en-us/main.js';
+  dataEn['imports']['@stanbic/mobilemenu'] =
+    'http://localhost:9001/en-us/main.js';
 
-  // console.log(data);
+  // chiness
+  dataCH['imports']['@Stanbic/root-config'] =
+    'https://sbinternetbanking.web.app/Stanbic-root-config.js';
+  // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
+  dataCH['imports']['@stanbic/sidebar'] =
+    'https://sbinternetbankingsidebar.web.app/zh-cn/main.js';
+  // data['imports']['@stanbic/header'] =
+  //   'https://sbinternetbankingheader.web.app/main.js';
+  dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/zh-cn/main.js';
+  dataCH['imports']['@stanbic/mobilemenu'] =
+    'http://localhost:9001/zh-cn/main.js';
+
+  console.log('dataEn', dataEn);
+
+  console.log('dataEn', dataCH);
 
   // Configure client for use with Spaces
   const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
@@ -123,19 +199,32 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
     secretAccessKey: 'HjgTHoEfq6aVTh0IAD6ZmNo47ysnYK+K2W61d11wK+k',
   });
 
-  var params = {
-    Body: JSON.stringify(data),
+  var paramsEn = {
+    Body: JSON.stringify(dataEn),
+    Bucket: 'contro/en',
+    Key: 'importmap.json',
+    ACL: 'public-read',
+    ContentType: 'application/json',
+  };
+
+  var paramsCH = {
+    Body: JSON.stringify(dataCH),
     Bucket: 'contro',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
   };
 
-  s3.putObject(params, function (err: any, data: any) {
+  s3.putObject(paramsEn, function (err: any, data: any) {
     if (err) console.log(err, err.stack);
     else console.log(data);
   });
 
+
+  s3.putObject(paramsCH, function (err: any, data: any) {
+    if (err) console.log(err, err.stack);
+    else console.log(data);
+  });
   res.send(controls);
 });
 
