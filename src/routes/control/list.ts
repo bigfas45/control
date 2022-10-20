@@ -110,7 +110,7 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
   data['imports']['@stanbic/sidebar'] =
     'https://sbinternetbankingsidebar.web.app/main.js';
   // data['imports']['@stanbic/header'] =  'https://sbinternetbankingheader.web.app/main.js';
-  data["imports"]["@stanbic/header"] =  "http://localhost:9002/main.js"
+  data['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
   data['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
   // console.log(data);
@@ -145,28 +145,25 @@ router.get('/api/control/search', async (req: Request, res: Response) => {
   const fetchParams: any = {
     filterOptions: {
       appMenuName,
-
-  
     },
-
-
   };
 
-
-  if(!appMenuName){
-
+  if (!appMenuName) {
   }
 
-  const appMenuNameRegex = new RegExp(fetchParams.filterOptions.appMenuName, 'ig');
+  const appMenuNameRegex = new RegExp(
+    fetchParams.filterOptions.appMenuName,
+    'ig'
+  );
 
-    const appMenuNameGet = { $regex: appMenuNameRegex };
+  const appMenuNameGet = { $regex: appMenuNameRegex };
 
-    console.log(appMenuNameGet)
+  console.log(appMenuNameGet);
 
   const control = await Control.aggregate([
     {
       $match: {
-        appMenuName: appMenuNameGet
+        appMenuName: appMenuNameGet,
       },
     },
   ]);
