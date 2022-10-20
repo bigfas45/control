@@ -10,7 +10,8 @@ const start = async () => {
 
 
    try {
-    const uri = "mongodb+srv://admin:root@stanbic.m5eow.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    // const uri = "mongodb+srv://admin:root@stanbic.m5eow.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    const uri = "mongodb://localhost:27017/control"
     await mongoose.connect(uri);
     console.log('Connected to MongoDb');
   } catch (err) {
