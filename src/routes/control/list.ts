@@ -189,7 +189,7 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
     'https://sbinternetbankingsidebar.web.app/zh-cn/main.js';
   // dataCH['imports']['@stanbic/header'] =
   // 'https://sbinternetbankingheader.web.app/zh-cn/main.js';
-  dataCH['imports']['@stanbic/header'] = 'http://localhost:9/main.js';
+  dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
   dataCH['imports']['@stanbic/mobilemenu'] =
     'http://localhost:9001/main.js';
 
