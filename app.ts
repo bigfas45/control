@@ -15,9 +15,12 @@ import { featureRouter } from './src/routes/features/new';
 import { featuresListRouter } from './src/routes/features/index';
 import { featuresShowRouter } from './src/routes/features/show';
 import {controlFeautureUpdateRouter } from './src/routes/features/update';
-
+import {AdvertsRouter} from './src/routes/control/adverts'
 
 var cors = require('cors');
+
+var fileupload = require('express-fileupload');
+
 
 
 import cookieSession from 'cookie-session';
@@ -27,6 +30,9 @@ app.options('*', cors());
 app.set('trust proxy', true);
 app.use(json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(fileupload());
+
 
 app.use(
   cookieSession({
@@ -48,10 +54,13 @@ app.use(
  app.use(featureRouter);
  app.use(featuresListRouter);
  app.use(featuresShowRouter);
- app.use(controlFeautureUpdateRouter)
+ app.use(controlFeautureUpdateRouter);
+ app.use(AdvertsRouter)
 
 app.all('*', async (req, res, next) => {
+
   throw new NotFoundError();
+  
 });
 
 app.use(errorHandler);
