@@ -4,7 +4,7 @@ import { Control } from '../../models/control';
 
 const router = express.Router();
 
-router.delete('/api/control/:conId', async (req: Request, res: Response) => {
+router.delete('/apv/control/:conId', async (req: Request, res: Response) => {
   const control = await Control.findById(req.params.conId);
 
   if (!control) {
@@ -12,7 +12,7 @@ router.delete('/api/control/:conId', async (req: Request, res: Response) => {
   }
 
   await control.remove();
-  console.log("delete")
+  console.log('delete');
 
   res.send({});
 });

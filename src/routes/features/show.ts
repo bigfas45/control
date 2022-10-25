@@ -4,9 +4,7 @@ import { Features } from '../../models/features';
 
 const router = express.Router();
 
-router.get('/api/feature/:features', async (req: Request, res: Response) => {
-
-
+router.get('/apv/feature/:features', async (req: Request, res: Response) => {
   const features = await Features.findById(req.params.features);
 
   if (!features) {

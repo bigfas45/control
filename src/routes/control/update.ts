@@ -4,7 +4,7 @@ import { Control } from '../../models/control';
 
 const router = express.Router();
 
-router.put('/api/control/:conId', async (req: Request, res: Response) => {
+router.put('/apv/control/:conId', async (req: Request, res: Response) => {
   const { appName, appURL, appMenuName, appRoute, appIcon, status, order } =
     req.body;
 
@@ -50,17 +50,14 @@ router.put('/api/control/:conId', async (req: Request, res: Response) => {
 });
 
 router.put(
-  '/api/control/:order1/:order2',
+  '/apv/control/:order1/:order2',
   async (req: Request, res: Response) => {
-
-   const {order1, order2} = req.params
+    const { order1, order2 } = req.params;
     const getIdFirst = await Control.findOne({ order: order1 });
 
     const getIdSecond = await Control.findOne({ order: order2 });
 
-    console.log(getIdSecond?.id, getIdFirst?.id)
-
-  
+    console.log(getIdSecond?.id, getIdFirst?.id);
 
     const itemsToUpdate = [
       { _id: getIdFirst?.id, order: order2 },

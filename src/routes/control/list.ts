@@ -12,7 +12,7 @@ interface dataInterface {
 
 const router = express.Router();
 
-router.get('/api/control', async (req: Request, res: Response) => {
+router.get('/apv/control', async (req: Request, res: Response) => {
   const control = await Control.find({ status: true }).sort({ order: 1 });
 
   if (!control) {
@@ -67,7 +67,7 @@ router.get('/api/control', async (req: Request, res: Response) => {
   dataEn['imports']['@stanbic/sidebar'] =
     'https://sbinternetbankingsidebar.web.app/en-us/main.js';
   dataEn['imports']['@stanbic/header'] =
-  'https://sbinternetbankingheader.web.app/en-us/main.js';
+    'https://sbinternetbankingheader.web.app/en-us/main.js';
   // dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
   dataEn['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
@@ -78,7 +78,7 @@ router.get('/api/control', async (req: Request, res: Response) => {
   dataCH['imports']['@stanbic/sidebar'] =
     'https://sbinternetbankingsidebar.web.app/zh-cn/main.js';
   dataCH['imports']['@stanbic/header'] =
-  'https://sbinternetbankingheader.web.app/zh-cn/main.js';
+    'https://sbinternetbankingheader.web.app/zh-cn/main.js';
   // dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
   dataCH['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
@@ -122,7 +122,7 @@ router.get('/api/control', async (req: Request, res: Response) => {
   res.send(controls);
 });
 
-router.get('/api/control/app', async (req: Request, res: Response) => {
+router.get('/apv/control/app', async (req: Request, res: Response) => {
   const control = await Control.find({}).sort({ order: 1 });
 
   if (!control) {
@@ -177,7 +177,7 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
   dataEn['imports']['@stanbic/sidebar'] =
     'https://sbinternetbankingsidebar.web.app/en-us/main.js';
   dataEn['imports']['@stanbic/header'] =
-  'https://sbinternetbankingheader.web.app/en-us/main.js';
+    'https://sbinternetbankingheader.web.app/en-us/main.js';
   // dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
   dataEn['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
@@ -188,10 +188,9 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
   dataCH['imports']['@stanbic/sidebar'] =
     'https://sbinternetbankingsidebar.web.app/zh-cn/main.js';
   dataCH['imports']['@stanbic/header'] =
-  'https://sbinternetbankingheader.web.app/zh-cn/main.js';
+    'https://sbinternetbankingheader.web.app/zh-cn/main.js';
   // dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
-  dataCH['imports']['@stanbic/mobilemenu'] =
-    'http://localhost:9001/main.js';
+  dataCH['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
   console.log('dataEn', dataEn);
 
@@ -233,7 +232,7 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
   res.send(controls);
 });
 
-router.get('/api/control/search', async (req: Request, res: Response) => {
+router.get('/apv/control/search', async (req: Request, res: Response) => {
   const { appMenuName } = req.query;
 
   const fetchParams: any = {
