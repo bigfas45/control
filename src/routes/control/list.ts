@@ -60,7 +60,7 @@ router.get('/apv/control', async (req: Request, res: Response) => {
     }
   }
 
-  // english
+  // uatenglish
   dataEn['imports']['@Stanbic/root-config'] =
     'https://sbinternetbanking.web.app/Stanbic-root-config.js';
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
@@ -96,7 +96,7 @@ router.get('/apv/control', async (req: Request, res: Response) => {
 
   var paramsEn = {
     Body: JSON.stringify(dataEn),
-    Bucket: 'contro/english',
+    Bucket: 'contro/uatenglish',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
@@ -104,7 +104,7 @@ router.get('/apv/control', async (req: Request, res: Response) => {
 
   var paramsCH = {
     Body: JSON.stringify(dataCH),
-    Bucket: 'contro/chinese',
+    Bucket: 'contro/uatchinese',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
@@ -170,7 +170,7 @@ router.get('/apv/control/app', async (req: Request, res: Response) => {
     }
   }
 
-  // english
+  // uatenglish
   dataEn['imports']['@Stanbic/root-config'] =
     'https://sbinternetbanking.web.app/Stanbic-root-config.js';
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
@@ -206,7 +206,7 @@ router.get('/apv/control/app', async (req: Request, res: Response) => {
 
   var paramsEn = {
     Body: JSON.stringify(dataEn),
-    Bucket: 'contro/english',
+    Bucket: 'contro/uatenglish',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
@@ -214,7 +214,7 @@ router.get('/apv/control/app', async (req: Request, res: Response) => {
 
   var paramsCH = {
     Body: JSON.stringify(dataCH),
-    Bucket: 'contro/chinese',
+    Bucket: 'contro/uatchinese',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',

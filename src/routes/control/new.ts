@@ -73,26 +73,26 @@ router.post(
       throw new NotFoundError();
     }
 
-    const data: dataInterface = {
-      imports: {},
-    };
+    // const data: dataInterface = {
+    //   imports: {},
+    // };
 
-    data['imports']['react'] =
-      'https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js';
-    data['imports']['react-dom'] =
-      'https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js';
+    // data['imports']['react'] =
+    //   'https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js';
+    // data['imports']['react-dom'] =
+    //   'https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js';
 
-    for (const { appName, appURL } of controlS) {
-      data['imports'][appName] = appURL;
-    }
+    // for (const { appName, appURL } of controlS) {
+    //   data['imports'][appName] = appURL;
+    // }
 
-    data['imports']['@Stanbic/root-config'] =
-      'https://sbinternetbanking.web.app/Stanbic-root-config.js';
-    data['imports']['@stanbic/sidebar'] =
-      'https://sbinternetbankingsidebar.web.app/main.js';
-    // data["imports"]["@stanbic/header"] =  "https://sbinternetbankingheader.web.app/main.js"
+    // data['imports']['@Stanbic/root-config'] =
+    //   'https://sbinternetbanking.web.app/Stanbic-root-config.js';
+    // data['imports']['@stanbic/sidebar'] =
+    //   'https://sbinternetbankingsidebar.web.app/main.js';
+    // // data["imports"]["@stanbic/header"] =  "https://sbinternetbankingheader.web.app/main.js"
 
-    data['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
+    // data['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
 
     // // Configure client for use with Spaces
     // const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
@@ -102,25 +102,25 @@ router.post(
     //     secretAccessKey: 'lFelSHpg6Ci6S1svfoPssG1y944WEZJ5sIeXzMo212I'
     // });
 
-    const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
-    const s3 = new AWS.S3({
-      endpoint: spacesEndpoint,
-      accessKeyId: 'CWI7K3TKYFZIRPEBMWAF',
-      secretAccessKey: 'HjgTHoEfq6aVTh0IAD6ZmNo47ysnYK+K2W61d11wK+k',
-    });
+    // const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
+    // const s3 = new AWS.S3({
+    //   endpoint: spacesEndpoint,
+    //   accessKeyId: 'CWI7K3TKYFZIRPEBMWAF',
+    //   secretAccessKey: 'HjgTHoEfq6aVTh0IAD6ZmNo47ysnYK+K2W61d11wK+k',
+    // });
 
-    var params = {
-      Body: JSON.stringify(data),
-      Bucket: 'contro',
-      Key: 'importmap.json',
-      ACL: 'public-read',
-      ContentType: 'application/json',
-    };
+    // var params = {
+    //   Body: JSON.stringify(data),
+    //   Bucket: 'contro',
+    //   Key: 'importmap.json',
+    //   ACL: 'public-read',
+    //   ContentType: 'application/json',
+    // };
 
-    s3.putObject(params, function (err: any, data: any) {
-      if (err) console.log(err, err.stack);
-      else console.log(data);
-    });
+    // s3.putObject(params, function (err: any, data: any) {
+    //   if (err) console.log(err, err.stack);
+    //   else console.log(data);
+    // });
 
     res.status(201).send(control);
   }
