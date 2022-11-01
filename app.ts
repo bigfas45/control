@@ -25,7 +25,12 @@ var fileupload = require('express-fileupload');
 
 import cookieSession from 'cookie-session';
 const app = express();
-app.use(cors());
+var corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200,
+  methods: "GET, PUT"
+}
+app.use(cors(corsOptions));
 app.options('*', cors());
 app.set('trust proxy', true);
 app.use(json());

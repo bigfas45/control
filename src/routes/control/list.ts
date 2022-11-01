@@ -129,6 +129,7 @@ router.get('/apv/control/app', async (req: Request, res: Response) => {
     throw new NotFoundError();
   }
 
+
   const results = control.map(async (result) => {
     const features = await Features.find({ control: result._id });
 
