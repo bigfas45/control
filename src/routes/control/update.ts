@@ -5,7 +5,7 @@ import { Control } from '../../models/control';
 const router = express.Router();
 
 router.put('/apv/control/:conId', async (req: Request, res: Response) => {
-  const { appName, appURL, appMenuName, appRoute, appIcon, status, order } =
+  const { appName, appURL, appMenuName, appRoute, appIcon, status, order, type } =
     req.body;
 
   console.log('appIcon', status);
@@ -42,6 +42,10 @@ router.put('/apv/control/:conId', async (req: Request, res: Response) => {
 
   if (order) {
     control.set({ order });
+  }
+
+  if(type){
+    control.set({type})
   }
 
   await control.save();

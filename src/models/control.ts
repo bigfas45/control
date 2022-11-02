@@ -8,6 +8,8 @@ interface ControlAttrs {
   appIcon: string;
   status?: boolean
   order?: number
+  type?: string
+
 }
 
 export interface ControlDoc extends mongoose.Document {
@@ -18,6 +20,8 @@ export interface ControlDoc extends mongoose.Document {
   appIcon: string;
   status?: boolean;
   order?: number
+  type?: string
+
 
 
 }
@@ -48,6 +52,10 @@ const ControlSchema = new mongoose.Schema(
       trim: true,
     },
     appIcon: {
+      type: String,
+      trim: true,
+    },
+    type: {
       type: String,
       trim: true,
     },
