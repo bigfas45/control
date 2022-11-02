@@ -62,7 +62,7 @@ router.get('/apv/control', async (req: Request, res: Response) => {
 
   // uatenglish
   dataEn['imports']['@Stanbic/root-config'] =
-    'https://sbinternetbanking.web.app/Stanbic-root-config.js';
+    'https://devtest.stanbicibtc.com:9000/Stanbic-root-config.js';
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
   dataEn['imports']['@stanbic/sidebar'] =
     'https://devtest.stanbicibtc.com:9000/OnlineBankingSidebar/en-us/main.js';
@@ -73,7 +73,7 @@ router.get('/apv/control', async (req: Request, res: Response) => {
 
   // chiness
   dataCH['imports']['@Stanbic/root-config'] =
-    'https://sbinternetbanking.web.app/Stanbic-root-config.js';
+    'https://devtest.stanbicibtc.com:9000/Stanbic-root-config.js';
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
   dataCH['imports']['@stanbic/sidebar'] =
     'https://devtest.stanbicibtc.com:9000/OnlineBankingSidebar/zh-cn/main.js';
@@ -173,7 +173,7 @@ router.get('/apv/control/app', async (req: Request, res: Response) => {
 
   // uatenglish
   dataEn['imports']['@Stanbic/root-config'] =
-    'https://sbinternetbanking.web.app/Stanbic-root-config.js';
+    'https://devtest.stanbicibtc.com:9000/Stanbic-root-config.js';
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
   dataEn['imports']['@stanbic/sidebar'] =
     'https://devtest.stanbicibtc.com:9000/OnlineBankingSidebar/en-us/main.js';
@@ -184,7 +184,7 @@ router.get('/apv/control/app', async (req: Request, res: Response) => {
 
   // chiness
   dataCH['imports']['@Stanbic/root-config'] =
-    'https://sbinternetbanking.web.app/Stanbic-root-config.js';
+    'https://devtest.stanbicibtc.com:9000/Stanbic-root-config.js';
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
   dataCH['imports']['@stanbic/sidebar'] =
     'https://devtest.stanbicibtc.com:9000/OnlineBankingSidebar/zh-cn/main.js';
