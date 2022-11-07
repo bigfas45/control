@@ -14,4 +14,16 @@ router.get('/api/feature/:features', async (req: Request, res: Response) => {
   res.send(features);
 });
 
+router.delete('/api/feature/:features', async (req: Request, res: Response) => {
+  const features = await Features.findById(req.params.features);
+
+  if (!features) {
+    throw new NotFoundError();
+  }
+
+  await features.remove();
+
+  res.send(features);
+});
+
 export { router as featuresShowRouter };

@@ -28,7 +28,7 @@ const app = express();
 var corsOptions = {
   origin: '*',
   optionsSuccessStatus: 200,
-  methods: "GET, PUT"
+  methods: "GET, PUT, DELETE"
 }
 app.use(cors(corsOptions));
 app.options('*', cors());
