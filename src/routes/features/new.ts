@@ -11,7 +11,7 @@ import { Control } from '../../models/control';
 const router = express.Router();
 
 router.post(
-  '/apv/control/:controlID',
+  '/api/control/:controlID',
   [
     body('subFeatureRoute')
       .not()

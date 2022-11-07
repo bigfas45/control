@@ -4,9 +4,17 @@ import { Control } from '../../models/control';
 
 const router = express.Router();
 
-router.put('/apv/control/:conId', async (req: Request, res: Response) => {
-  const { appName, appURL, appMenuName, appRoute, appIcon, status, order, type } =
-    req.body;
+router.put('/api/control/:conId', async (req: Request, res: Response) => {
+  const {
+    appName,
+    appURL,
+    appMenuName,
+    appRoute,
+    appIcon,
+    status,
+    order,
+    type,
+  } = req.body;
 
   console.log('appIcon', status);
 
@@ -44,8 +52,8 @@ router.put('/apv/control/:conId', async (req: Request, res: Response) => {
     control.set({ order });
   }
 
-  if(type){
-    control.set({type})
+  if (type) {
+    control.set({ type });
   }
 
   await control.save();
@@ -54,7 +62,7 @@ router.put('/apv/control/:conId', async (req: Request, res: Response) => {
 });
 
 router.put(
-  '/apv/control/:order1/:order2',
+  '/api/control/:order1/:order2',
   async (req: Request, res: Response) => {
     const { order1, order2 } = req.params;
     const getIdFirst = await Control.findOne({ order: order1 });

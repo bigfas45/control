@@ -35,7 +35,7 @@ async function writeCss(input: any) {
   return await promise;
 }
 
-router.get('/apv/dark/:id', async (req: Request, res: Response) => {
+router.get('/api/dark/:id', async (req: Request, res: Response) => {
   const id = req.params.id;
 
   const dark = await Styling.findById(id);
