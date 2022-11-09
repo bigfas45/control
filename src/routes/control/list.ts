@@ -69,10 +69,10 @@ router.get('/api/control', async (req: Request, res: Response) => {
   dataEn['imports']['@stanbic/sidebar'] =
     'https://sbinternetbankingsidebar.web.app/en-us/main.js';
 
-  // dataEn['imports']['@stanbic/header'] =
-  //   'https://sbinternetbankingheader.web.app/en-us/main.js';
-  dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
-  dataEn['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
+   dataEn['imports']['@stanbic/header'] =
+    'https://sbinternetbankingheader.web.app/en-us/main.js';
+ //  // dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
+
 
   // chiness
   dataCH['imports']['@Stanbic/root-config'] =
@@ -81,10 +81,9 @@ router.get('/api/control', async (req: Request, res: Response) => {
   // dataCH["imports"]["@stanbic/sidebar"] =  "http://localhost:9001/main.js"
   dataCH['imports']['@stanbic/sidebar'] =
     'https://sbinternetbankingsidebar.web.app/zh-cn/main.js';
-  // dataCH['imports']['@stanbic/header'] =
-  //   'https://sbinternetbankingheader.web.app/zh-cn/main.js';
-  dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
-  dataCH['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
+  dataCH['imports']['@stanbic/header'] =
+    'https://sbinternetbankingheader.web.app/zh-cn/main.js';
+  // dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
 
   // Configure client for use with Spaces
   const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
@@ -177,10 +176,10 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
   // dataEn["imports"]["@stanbic/sidebar"] =  "http://localhost:9001/main.js"
   dataEn['imports']['@stanbic/sidebar'] =
     'https://sbinternetbankingsidebar.web.app/en-us/main.js';
-  // dataEn['imports']['@stanbic/header'] =
-  //   'https://sbinternetbankingheader.web.app/en-us/main.js';
-  dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
-  dataEn['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
+   dataEn['imports']['@stanbic/header'] =
+    'https://sbinternetbankingheader.web.app/en-us/main.js';
+   // dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
+
 
   // chiness
   dataCH['imports']['@Stanbic/root-config'] =
@@ -192,10 +191,9 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
     // dataCH['imports']['@stanbic/sidebar'] =
     // 'http://localhost:9001/main.js';
 
-  // dataCH['imports']['@stanbic/header'] =
-  //   'https://sbinternetbankingheader.web.app/zh-cn/main.js';
-  dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
-  dataCH['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
+  dataCH['imports']['@stanbic/header'] =
+    'https://sbinternetbankingheader.web.app/zh-cn/main.js';
+  // dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
 
   console.log('dataEn', dataEn);
 
