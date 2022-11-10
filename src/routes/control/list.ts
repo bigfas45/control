@@ -71,7 +71,7 @@ router.get('/api/control', async (req: Request, res: Response) => {
 
   //  dataEn['imports']['@stanbic/header'] =
   //   'https://sbinternetbankingheader.web.app/en-us/main.js';
-  // dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
+  dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
 
 
   // chiness
