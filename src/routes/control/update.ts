@@ -16,7 +16,6 @@ router.put('/api/control/:conId', async (req: Request, res: Response) => {
     type,
   } = req.body;
 
-  console.log('appIcon', status);
 
   const control = await Control.findById(req.params.conId);
 
