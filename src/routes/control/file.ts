@@ -8,7 +8,7 @@ const router = express.Router();
 
 // testing
 
-router.get('/api/file', async (req: Request, res: Response) => {
+router.get('/apv/file', async (req: Request, res: Response) => {
   const directoryPath = path.join(__dirname, 'style');
 
   console.log(directoryPath);

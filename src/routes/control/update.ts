@@ -4,7 +4,7 @@ import { Control } from '../../models/control';
 
 const router = express.Router();
 
-router.put('/api/control/:conId', async (req: Request, res: Response) => {
+router.put('/apv/control/:conId', async (req: Request, res: Response) => {
   const {
     appName,
     appURL,
@@ -15,7 +15,6 @@ router.put('/api/control/:conId', async (req: Request, res: Response) => {
     order,
     type,
   } = req.body;
-
 
   const control = await Control.findById(req.params.conId);
 
@@ -61,7 +60,7 @@ router.put('/api/control/:conId', async (req: Request, res: Response) => {
 });
 
 router.put(
-  '/api/control/:order1/:order2',
+  '/apv/control/:order1/:order2',
   async (req: Request, res: Response) => {
     const { order1, order2 } = req.params;
     const getIdFirst = await Control.findOne({ order: order1 });

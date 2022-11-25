@@ -15,7 +15,7 @@ interface dataInterface {
 }
 
 router.post(
-  '/api/control',
+  '/apv/control',
   [
     body('appMenuName').not().isEmpty().withMessage('appMenuName is required'),
     body('appName').not().isEmpty().withMessage('appName is required'),

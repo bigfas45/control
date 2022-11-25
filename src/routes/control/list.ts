@@ -12,7 +12,7 @@ interface dataInterface {
 
 const router = express.Router();
 
-router.get('/api/control', async (req: Request, res: Response) => {
+router.get('/apv/control', async (req: Request, res: Response) => {
   const control = await Control.find({ status: true }).sort({ order: 1 });
 
   if (!control) {
@@ -60,29 +60,31 @@ router.get('/api/control', async (req: Request, res: Response) => {
     }
   }
 
-  // english
+  // uatenglish
   dataEn['imports']['@Stanbic/root-config'] =
-    'https://sbinternetbanking.web.app/Stanbic-root-config.js';
-  // dataEn["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
-  // dataEn["imports"]["@stanbic/sidebar"] =  "http://localhost:9001/main.js"
-
+    'https://devtest.stanbicibtc.com:9000/Stanbic-root-config.js';
+  // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
   dataEn['imports']['@stanbic/sidebar'] =
-    'https://sbinternetbankingsidebar.web.app/en-us/main.js';
-
-   dataEn['imports']['@stanbic/header'] =
-    'https://sbinternetbankingheader.web.app/en-us/main.js';
+    'https://devtest.stanbicibtc.com:9000/OnlineBankingSidebar/en-us/main.js';
+  dataEn['imports']['@stanbic/header'] =
+    'https://devtest.stanbicibtc.com:9000/OnlineBankingHeader/en-us/main.js';
   // dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
+  dataEn['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
   // chiness
   dataCH['imports']['@Stanbic/root-config'] =
-    'https://sbinternetbanking.web.app/Stanbic-root-config.js';
-  // dataCH["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
-  // dataCH["imports"]["@stanbic/sidebar"] =  "http://localhost:9001/main.js"
+    'https://devtest.stanbicibtc.com:9000/Stanbic-root-config.js';
+  // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
   dataCH['imports']['@stanbic/sidebar'] =
-    'https://sbinternetbankingsidebar.web.app/zh-cn/main.js';
+    'https://devtest.stanbicibtc.com:9000/OnlineBankingSidebar/zh-cn/main.js';
   dataCH['imports']['@stanbic/header'] =
-    'https://sbinternetbankingheader.web.app/zh-cn/main.js';
+    'https://devtest.stanbicibtc.com:9000/OnlineBankingHeader/zh-cn/main.js';
   // dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
+  dataCH['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
+
+  console.log('dataEn', dataEn);
+
+  console.log('dataEn', dataCH);
 
   // Configure client for use with Spaces
   const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
@@ -94,7 +96,7 @@ router.get('/api/control', async (req: Request, res: Response) => {
 
   var paramsEn = {
     Body: JSON.stringify(dataEn),
-    Bucket: 'contro/english',
+    Bucket: 'contro/uatenglish',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
@@ -102,7 +104,7 @@ router.get('/api/control', async (req: Request, res: Response) => {
 
   var paramsCH = {
     Body: JSON.stringify(dataCH),
-    Bucket: 'contro/chinese',
+    Bucket: 'contro/uatchinese',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
@@ -120,7 +122,7 @@ router.get('/api/control', async (req: Request, res: Response) => {
   res.send(controls);
 });
 
-router.get('/api/control/app', async (req: Request, res: Response) => {
+router.get('/apv/control/app', async (req: Request, res: Response) => {
   const control = await Control.find({}).sort({ order: 1 });
 
   if (!control) {
@@ -168,30 +170,27 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
     }
   }
 
-  // english
+  // uatenglish
   dataEn['imports']['@Stanbic/root-config'] =
-    'https://sbinternetbanking.web.app/Stanbic-root-config.js';
-  // dataEn["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
-  // dataEn["imports"]["@stanbic/sidebar"] =  "http://localhost:9001/main.js"
+    'https://devtest.stanbicibtc.com:9000/Stanbic-root-config.js';
+  // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
   dataEn['imports']['@stanbic/sidebar'] =
-    'https://sbinternetbankingsidebar.web.app/en-us/main.js';
-   dataEn['imports']['@stanbic/header'] =
-    'https://sbinternetbankingheader.web.app/en-us/main.js';
+    'https://devtest.stanbicibtc.com:9000/OnlineBankingSidebar/en-us/main.js';
+  dataEn['imports']['@stanbic/header'] =
+    'https://devtest.stanbicibtc.com:9000/OnlineBankingHeader/en-us/main.js';
   // dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
+  dataEn['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
   // chiness
   dataCH['imports']['@Stanbic/root-config'] =
-    'https://sbinternetbanking.web.app/Stanbic-root-config.js';
+    'https://devtest.stanbicibtc.com:9000/Stanbic-root-config.js';
   // data["imports"]["@stanbic/sidebar"] =  "https://sbinternetbankingsidebar.web.app/main.js"
   dataCH['imports']['@stanbic/sidebar'] =
-    'https://sbinternetbankingsidebar.web.app/zh-cn/main.js';
-
-  // dataCH['imports']['@stanbic/sidebar'] =
-  // 'http://localhost:9001/main.js';
-
+    'https://devtest.stanbicibtc.com:9000/OnlineBankingSidebar/zh-cn/main.js';
   dataCH['imports']['@stanbic/header'] =
-    'https://sbinternetbankingheader.web.app/zh-cn/main.js';
+    'https://devtest.stanbicibtc.com:9000/OnlineBankingHeader/zh-cn/main.js';
   // dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
+  dataCH['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
   console.log('dataEn', dataEn);
 
@@ -207,7 +206,7 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
 
   var paramsEn = {
     Body: JSON.stringify(dataEn),
-    Bucket: 'contro/english',
+    Bucket: 'contro/uatenglish',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
@@ -215,7 +214,7 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
 
   var paramsCH = {
     Body: JSON.stringify(dataCH),
-    Bucket: 'contro/chinese',
+    Bucket: 'contro/uatchinese',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
@@ -233,7 +232,7 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
   res.send(controls);
 });
 
-router.get('/api/control/search', async (req: Request, res: Response) => {
+router.get('/apv/control/search', async (req: Request, res: Response) => {
   const { appMenuName } = req.query;
 
   const fetchParams: any = {

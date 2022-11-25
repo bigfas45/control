@@ -12,7 +12,7 @@ const router = express.Router();
 //   return await promise;
 // };
 
-router.get('/api/style', async (req: Request, res: Response) => {
+router.get('/apv/style', async (req: Request, res: Response) => {
   const dark = await Styling.find({});
 
   if (!dark) {
