@@ -4,7 +4,7 @@ import { Control } from '../../models/control';
 
 const router = express.Router();
 
-router.get('/apv/control/:conId', async (req: Request, res: Response) => {
+router.get('/api/control/:conId', async (req: Request, res: Response) => {
   const control = await Control.findById(req.params.conId);
 
   if (!control) {

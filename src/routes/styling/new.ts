@@ -6,7 +6,7 @@ import { Styling } from '../../models/styling';
 const router = express.Router();
 
 router.post(
-  '/apv/style',
+  '/api/style',
   [
     body('name').not().isEmpty().withMessage('name is required'),
     body('style').not().isEmpty().withMessage('style is required'),

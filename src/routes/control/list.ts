@@ -12,7 +12,7 @@ interface dataInterface {
 
 const router = express.Router();
 
-router.get('/apv/control', async (req: Request, res: Response) => {
+router.get('/api/control', async (req: Request, res: Response) => {
   const control = await Control.find({ status: true }).sort({ order: 1 });
 
   if (!control) {
@@ -96,7 +96,7 @@ router.get('/apv/control', async (req: Request, res: Response) => {
 
   var paramsEn = {
     Body: JSON.stringify(dataEn),
-    Bucket: 'contro/uatenglish',
+    Bucket: 'contro/english',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
@@ -104,7 +104,7 @@ router.get('/apv/control', async (req: Request, res: Response) => {
 
   var paramsCH = {
     Body: JSON.stringify(dataCH),
-    Bucket: 'contro/uatchinese',
+    Bucket: 'contro/chinese',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
@@ -122,7 +122,7 @@ router.get('/apv/control', async (req: Request, res: Response) => {
   res.send(controls);
 });
 
-router.get('/apv/control/app', async (req: Request, res: Response) => {
+router.get('/api/control/app', async (req: Request, res: Response) => {
   const control = await Control.find({}).sort({ order: 1 });
 
   if (!control) {
@@ -232,7 +232,7 @@ router.get('/apv/control/app', async (req: Request, res: Response) => {
   res.send(controls);
 });
 
-router.get('/apv/control/search', async (req: Request, res: Response) => {
+router.get('/api/control/search', async (req: Request, res: Response) => {
   const { appMenuName } = req.query;
 
   const fetchParams: any = {

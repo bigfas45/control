@@ -4,7 +4,7 @@ import { Styling } from '../../models/styling';
 
 const router = express.Router();
 
-router.put('/apv/style/:styleId', async (req: Request, res: Response) => {
+router.put('/api/style/:styleId', async (req: Request, res: Response) => {
   const { name, style } = req.body;
 
   const control = await Styling.findById(req.params.styleId);

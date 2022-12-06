@@ -4,7 +4,7 @@ import { Features } from '../../models/features';
 
 const router = express.Router();
 
-router.put('/apv/feature/:conId/', async (req: Request, res: Response) => {
+router.put('/api/feature/:conId/', async (req: Request, res: Response) => {
   const { subFeatureRoute, subFeatureName } = req.body;
 
   const control = await Features.findById(req.params.conId);

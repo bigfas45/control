@@ -15,7 +15,7 @@ import { ControlAdverts } from '../../models/adverts';
 const router = express.Router();
 
 router.post(
-  '/apv/adverts',
+  '/api/adverts',
   [
     body('title').not().isEmpty().withMessage('Title is required'),
     body('description').not().isEmpty().withMessage('Description is required'),
@@ -43,7 +43,7 @@ router.post(
 );
 
 router.get(
-  '/apv/adverts',
+  '/api/adverts',
 
   async (req: Request | any, res: Response | any) => {
     const adverts = await ControlAdverts.find({ status: false });
@@ -53,7 +53,7 @@ router.get(
 );
 
 router.put(
-  '/apv/adverts/:advertId',
+  '/api/adverts/:advertId',
 
   async (req: Request | any, res: Response | any) => {
     const { title, description, status } = req.body;
@@ -87,7 +87,7 @@ router.put(
 );
 
 router.get(
-  '/apv/adverts/:advertId',
+  '/api/adverts/:advertId',
 
   async (req: Request | any, res: Response | any) => {
     const advert = await ControlAdverts.findById(req.params.advertId);
