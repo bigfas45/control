@@ -82,9 +82,9 @@ router.get('/api/control', async (req: Request, res: Response) => {
   dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
   dataCH['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
-  console.log('dataEn', dataEn);
+  console.log('dataEnwwwwwwww', dataEn);
 
-  console.log('dataEn', dataCH);
+  console.log('dataEneeeeee', dataCH);
 
   // Configure client for use with Spaces
   const spacesEndpoint = new AWS.Endpoint('fra1.digitaloceanspaces.com');
