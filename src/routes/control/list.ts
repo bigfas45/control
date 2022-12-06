@@ -206,7 +206,7 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
 
   var paramsEn = {
     Body: JSON.stringify(dataEn),
-    Bucket: 'contro/uatenglish',
+    Bucket: 'contro/english',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
@@ -214,7 +214,7 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
 
   var paramsCH = {
     Body: JSON.stringify(dataCH),
-    Bucket: 'contro/uatchinese',
+    Bucket: 'contro/chinese',
     Key: 'importmap.json',
     ACL: 'public-read',
     ContentType: 'application/json',
