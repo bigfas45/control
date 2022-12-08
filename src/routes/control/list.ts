@@ -67,7 +67,7 @@ router.get('/api/control', async (req: Request, res: Response) => {
   dataEn['imports']['@stanbic/sidebar'] =
     'https://sbinternetbanking.web.app/OnlineBankingSidebar/en-us/main.js';
   dataEn['imports']['@stanbic/header'] =
-    'https://sbinternetbanking.web.app/OnlineBankingHeader/en-us/main.js';
+    'https://sbinternetbankingheader.web.app/en-us/main.js';
   // dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
   dataEn['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
@@ -78,7 +78,7 @@ router.get('/api/control', async (req: Request, res: Response) => {
   dataCH['imports']['@stanbic/sidebar'] =
     'https://sbinternetbanking.web.app/OnlineBankingSidebar/zh-cn/main.js';
   dataCH['imports']['@stanbic/header'] =
-    'https://sbinternetbanking.web.app/OnlineBankingHeader/zh-cn/main.js';
+    'https://sbinternetbankingheader.web.app/zh-cn/main.js';
     
   // dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
   dataCH['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
@@ -178,7 +178,7 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
   dataEn['imports']['@stanbic/sidebar'] =
     'https://sbinternetbanking.web.app/OnlineBankingSidebar/en-us/main.js';
   dataEn['imports']['@stanbic/header'] =
-    'https://sbinternetbanking.web.app/OnlineBankingHeader/en-us/main.js';
+    'https://sbinternetbankingheader.web.app/en-us/main.js';
   // dataEn['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
   dataEn['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
@@ -189,7 +189,7 @@ router.get('/api/control/app', async (req: Request, res: Response) => {
   dataCH['imports']['@stanbic/sidebar'] =
     'https://sbinternetbanking.web.app/OnlineBankingSidebar/zh-cn/main.js';
   dataCH['imports']['@stanbic/header'] =
-    'https://sbinternetbanking.web.app/OnlineBankingHeader/zh-cn/main.js';
+    'https://sbinternetbankingheader.web.app/zh-cn/main.js';
   // dataCH['imports']['@stanbic/header'] = 'http://localhost:9002/main.js';
   dataCH['imports']['@stanbic/mobilemenu'] = 'http://localhost:9001/main.js';
 
